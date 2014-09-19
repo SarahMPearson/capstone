@@ -27,6 +27,7 @@ module.exports = function(app, express){
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+  app.get('/find/:beer', home.find);
 
   console.log('Express: Routes Loaded');
 };
