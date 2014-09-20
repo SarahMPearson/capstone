@@ -3,7 +3,12 @@
 var bcrypt = require('bcrypt'),
     Mongo  = require('mongodb');
 
-function User(){
+function User(o){
+  this.email      = o.email;
+  this.password   = o.password;
+  this.beenThere  = [];
+  this.loveIt     = [];
+  this.hateIt     = [];
 }
 
 Object.defineProperty(User, 'collection', {

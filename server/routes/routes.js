@@ -8,6 +8,7 @@ var morgan         = require('morgan'),
     debug          = require('../lib/debug'),
     security       = require('../lib/security'),
     home           = require('../controllers/home'),
+    beers          = require('../controllers/beers'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -27,7 +28,8 @@ module.exports = function(app, express){
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
-  app.get('/find/:beer', home.find);
+  app.get('/find/:beer', beers.find);
+  app.get('/find/:brewery', beers.findBrew);
 
   console.log('Express: Routes Loaded');
 };
