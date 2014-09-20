@@ -47,15 +47,12 @@
       }
     }
   $scope.addLove = function(){
-    debugger;
-    User.loveIt.push($scope.beers.id);
+    User.loveIt($scope.beers.id).then(function(response){
+      debugger;
+      //push($scope.beers.id);
+    });
   };
 
- // function addLove(){
-   // debugger;
-    //rec.locals.loveIt.push($scope.beers.id)
- // }
- // return {addLove:addLove};
 
 
   }]);

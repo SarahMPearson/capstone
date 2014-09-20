@@ -16,7 +16,11 @@
       return $http.delete('/logout');
     }
 
-    return {register:register, login:login, logout:logout};
+    function loveIt(beerId){
+      return $http.post('/loveit/'+beerId);
+    }
+
+    return {register:register, login:login, logout:logout, loveIt:loveIt};
   }]);
 })();
 

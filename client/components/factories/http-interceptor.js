@@ -13,6 +13,8 @@
     }
 
     function response(res){
+      console.log(res);
+      console.log(res.headers('x-authenticated-user'));
       var email = res.headers('x-authenticated-user');
 
       if(email){
