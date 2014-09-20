@@ -13,7 +13,7 @@
 
     return {find:find, findBrew:findBrew};
   }])
-  .controller('BeerCtrl', ['$scope', 'BeerApi', function($scope, BeerApi){
+  .controller('BeerCtrl', ['$scope', 'BeerApi', 'User', function($scope, BeerApi, User){
     $scope.findBeer = function(){
       $scope.beers = [];
       $scope.breweries = [];
@@ -46,11 +46,18 @@
           return '/img/goblet.jpt';
       }
     }
-  function addLove(){
+  $scope.addLove = function(){
     debugger;
+    User.loveIt.push($scope.beers.id);
+  };
+
+ // function addLove(){
+   // debugger;
     //rec.locals.loveIt.push($scope.beers.id)
-  }
-  return {addLove:addLove};
+ // }
+ // return {addLove:addLove};
+
+
   }]);
 })();
 
