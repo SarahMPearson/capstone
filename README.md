@@ -1,14 +1,13 @@
-## name of project
+## HeadsUp
 ### Code Badges
-build status icon
-coverage status icon
+
 
 ### Screenshots
 ![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
 ![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
 
 ### Description
-write a description about your project
+An app where you can find out all about the beer you are drinking and the beer you want to drink!
 
 ### Models
 ```
@@ -38,9 +37,6 @@ Collection 2
 $ npm install
 $ npm test
 ```
-
-### Contributors
-- [Chyld Medford](https://github.com/chyld)
 
 ### License
 [MIT](LICENSE)
