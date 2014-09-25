@@ -1,26 +1,16 @@
-H2 BEER
-
-input(type='text', ng-model='beername', placeholder='PBR')
-button.btn.btn-default(ng-click='findBeer()') Find Beer
-
-input(type='text', ng-model='breweryname', placeholder='Dogfish Head')
-button(ng-click='findBrew()') Find Brewery
-
-ul
-  li(ng-repeat='beer in beers'): a(href='', ng-click='show(beer)') {{beer.name}}
 
 
 button.btn.btn-success(ng-show='beers.name', ng-click='addLove()') Love It!
 button.btn.btn-danger(ng-show='beers.name', ng-click='addHate()') Hate It!
 .row
   .col-xs-12
-    .panel
+    .panel(ng-show='beer.name')
       .panel-heading.panel-warning
         h1#bName {{beer.name}}
-        .panel.body
+        .panel.body(ng-show='beer.name')
           .row
             .col-xs-4
-              img(src='{{beer.labels.medium}}' || 'img/')
+              img(src='{{beer.labels.medium}}' || '/img/logo.jpg')
             .col-xs-1
             .col-xs-3
               h1#abv(ng-show='beer.abv') {{beer.abv}}%
@@ -33,3 +23,21 @@ button.btn.btn-danger(ng-show='beers.name', ng-click='addHate()') Hate It!
         .panel-footer
           .row
             .col-xs-12
+              h2#style(ng-show='beer.style.name') Style: {{beer.style.name}}
+
+input(type='text', ng-model='beername', placeholder='PBR')
+button.btn.btn-default(ng-click='findBeer()') Find Beer
+
+//input(type='text', ng-model='breweryname', placeholder='Dogfish Head')
+//button(ng-click='findBrew()') Find Brewery
+
+//ul
+  li(ng-repeat='beer in beers'): a(href='', ng-click='show(beer)') {{beer.name}}
+
+
+.row
+  .col-cs-12
+    ul(ng-repeat='beer in beers')
+      .panel.panel-default.beer: a(href='', ng-click='show(beer)')
+        img.beer(src='{{beer.labels.icon}}') 
+        &nbsp; {{beer.name}}
