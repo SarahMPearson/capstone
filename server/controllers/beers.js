@@ -21,6 +21,7 @@ exports.findBrew = function(req, res){
 
 exports.show = function(req, res){
   Beer.findById(req.body.beer.id, function(err, beer){
+    console.log('Controller Beer', beer);
     res.send({beer:beer});
   });
 };

@@ -28,11 +28,13 @@ module.exports = function(app, express){
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
-  app.get('/find/:beer', beers.find);
+  app.get('/search/:beer', beers.find);
   app.get('/beer/:beerId', beers.show);
-  app.get('/find/:brewery', beers.findBrew);
+  app.get('/search/:brewery', beers.findBrew);
   app.post('/loveit/:beerId', beers.loveIt);
   app.post('/hateit/:beerId', beers.hateIt);
+
+
   console.log('Express: Routes Loaded');
 };
 

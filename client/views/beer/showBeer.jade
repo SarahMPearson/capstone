@@ -1,0 +1,29 @@
+H2 BEER
+button.btn.btn-success(ng-show='beers.name', ng-click='addLove()') Love It!
+button.btn.btn-danger(ng-show='beers.name', ng-click='addHate()') Hate It!
+.row
+  .col-xs-12
+    .panel(ng-show='beers.name')
+      .panel-heading.panel-warning
+        h1#bName {{beers.name}}
+        .panel.body(ng-show='beers.name')
+          .row
+            .col-xs-4
+              img(src='{{beers.labels.medium}}')
+            .col-xs-1
+            .col-xs-3
+              h1#abv(ng-show='beers.abv') {{beers.abv}}%
+            .col-xs-4
+              h2#glass{{beers.glass.name}}
+                img#pint(src='{{beers.glass.img}}')
+          .row
+            .col-xs-12
+              h5#description{{beers.description}}
+        .panel-footer
+          .row
+            .col-xs-12
+              h2#style(ng-show='beers.style.name') Style: {{beers.style.name}}
+
+//ul
+  li(ng-repeat='beer in beers') {{beer.name}}
+
