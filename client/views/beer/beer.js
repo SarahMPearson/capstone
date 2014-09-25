@@ -17,6 +17,8 @@
     $scope.findBeer = function(){
       $scope.beers = [];
       $scope.breweries = [];
+      $scope.loveIt = [];
+      $scope.hateIt = [];
 
       BeerApi.find($scope.beername).then(function(response){
         $scope.beers = response.data.data[0];
@@ -25,7 +27,6 @@
     };
     $scope.findBrew = function(){
       BeerApi.findBrew($scope.breweryname).then(function(response){
-        debugger;
         $scope.breweries = response.data.data[0];
       });
     };
@@ -46,17 +47,18 @@
           return '/img/goblet.jpt';
       }
     }
+
   $scope.addLove = function(){
-    debugger;
-    User.loveIt.push($scope.beers.id);
+    User.addLoveIt($scope.beers.id).then(function(response){
+      $scope.loveIt.push($scope.beers.id);
+    });
   };
 
- // function addLove(){
-   // debugger;
-    //rec.locals.loveIt.push($scope.beers.id)
- // }
- // return {addLove:addLove};
-
+  $scope.addHate = function(){
+    User.addHateIt($scope.beers.id).then(function(response){
+      $scope.hateIt.push($scope.beers.id);
+    });
+  };
 
   }]);
 })();

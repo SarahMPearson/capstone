@@ -1,7 +1,8 @@
 'use strict';
 
 var bcrypt = require('bcrypt'),
-    Mongo  = require('mongodb');
+    Mongo  = require('mongodb'),
+    _      = require('underscore');
 
 function User(o){
   this.email      = o.email;
@@ -17,14 +18,21 @@ Object.defineProperty(User, 'collection', {
 
 User.findById = function(id, cb){
   var _id = Mongo.ObjectID(id);
-  User.collection.findOne({_id:_id}, cb);
+  User.collection.findOne({_id:_id}, function(err, object){
+    if(!object){return cb();}
+
+    var user = Object.create(User.prototype);
+    user = _.extend(user, object);
+    cb(err, user);
+  });
 };
 
 User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
+    var oNew=new User(o);
     if(user || o.password.length < 3){return cb();}
-    o.password = bcrypt.hashSync(o.password, 10);
-    User.collection.save(o, cb);
+    oNew.password = bcrypt.hashSync(o.password, 10);
+    User.collection.save(oNew, cb);
   });
 };
 
@@ -36,6 +44,25 @@ User.login = function(o, cb){
     cb(null, user);
   });
 };
+
+User.prototype.save = function(cb){
+  User.collection.save(this, cb);
+};
+
+User.prototype.addLoveIt = function(beerId, cb){
+  this.loveIt.push(beerId);
+  User.collection.save(this, function(err, beerId){
+  });
+};
+
+User.prototype.addHateIt = function(beerId, cb){
+  this.hateIt.push(beerId);
+  User.collection.save(this, function(err, beerId){
+  });
+};
+
+
+
 
 module.exports = User;
 
