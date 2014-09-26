@@ -1,7 +1,7 @@
 
 
-button.btn.btn-success(ng-show='beers.name', ng-click='addLove()') Love It!
-button.btn.btn-danger(ng-show='beers.name', ng-click='addHate()') Hate It!
+button.btn.btn-success(ng-show='beer.name', ng-click='addLove()') Love It!
+button.btn.btn-danger(ng-show='beer.name', ng-click='addHate()') Hate It!
 .row
   .col-xs-12
     .panel(ng-show='beer.name')
@@ -39,5 +39,5 @@ button.btn.btn-default(ng-click='findBeer()') Find Beer
   .col-cs-12
     ul(ng-repeat='beer in beers')
       .panel.panel-default.beer: a(href='', ng-click='show(beer)')
-        img.beer(src='{{beer.labels.icon}}') 
+        img.beer(src='{{beer.labels.icon}}')
         &nbsp; {{beer.name}}

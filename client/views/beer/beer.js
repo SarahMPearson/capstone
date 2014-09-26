@@ -57,14 +57,14 @@
     }
 
   $scope.addLove = function(){
-    User.addLoveIt($scope.beers.id).then(function(response){
-      $scope.loveIt.push($scope.beers.id);
+    User.addLoveIt($scope.beer.id).then(function(response){
+      $scope.loveIt.push($scope.beer.id);
     });
   };
 
   $scope.addHate = function(){
-    User.addHateIt($scope.beers.id).then(function(response){
-      $scope.hateIt.push($scope.beers.id);
+    User.addHateIt($scope.beer.id).then(function(response){
+      $scope.hateIt.push($scope.beer.id);
     });
   };
 
