@@ -8,14 +8,8 @@ var request = require('request'),
 
 exports.find = function(req, res){
 
-  request('http://api.brewerydb.com/v2/search/?key=' + apiKey + '&type=beer&q=' + req.params.beer, function(err, data, body){
-    res.send(JSON.parse(data.body));
-  });
-};
-
-exports.findBrew = function(req, res){
-  request('http://api.brewerydb.com/v2/breweries/?key=' + apiKey + '&type=brewery&name=' + req.params.brewery, function(err, data, body){
-    res.send(JSON.parse(data.body));
+  request('http://api.brewerydb.com/v2/search/?key=' + apiKey + '&type=beer&q=' + req.params.beer, function(err, response, body){
+    res.send(JSON.parse(response.body));
   });
 };
 
@@ -30,16 +24,21 @@ exports.loveIt = function(req, res){
   User.findById(req.user._id, function(err, user){
    //console.log('controller req.user.id', req.user._id);
    //console.log('controller user', user);
-   //console.log('controller req.params.beerId', req.params.beerId);
-   user.addLoveIt(req.params.beerId);
+   user.addLoveIt(req.body);
    res.send({user:user});
  });
 };
 
 exports.hateIt = function(req, res){
   User.findById(req.user._id, function(err, user){
-    user.addHateIt(req.params.beerId);
+    user.addHateIt(req.body);
     res.send({user:user});
   });
 };
 
+
+//exports.deleteBeer = function(req, res){
+  //User.collection.remove({beerId:req.params.beerId}, true, function(err, result){
+    //res.send({result:result});
+ // });
+//};

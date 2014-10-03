@@ -7,7 +7,6 @@ var bcrypt = require('bcrypt'),
 function User(o){
   this.email      = o.email;
   this.password   = o.password;
-  this.beenThere  = [];
   this.loveIt     = [];
   this.hateIt     = [];
 }
@@ -49,18 +48,17 @@ User.prototype.save = function(cb){
   User.collection.save(this, cb);
 };
 
-User.prototype.addLoveIt = function(beerId, cb){
-  this.loveIt.push(beerId);
-  User.collection.save(this, function(err, beerId){
+User.prototype.addLoveIt = function(beer, cb){
+  this.loveIt.push(beer);
+  User.collection.save(this, function(err, beer){
   });
 };
 
-User.prototype.addHateIt = function(beerId, cb){
-  this.hateIt.push(beerId);
-  User.collection.save(this, function(err, beerId){
+User.prototype.addHateIt = function(beer, cb){
+  this.hateIt.push(beer);
+  User.collection.save(this, function(err, beer){
   });
 };
-
 
 
 

@@ -16,15 +16,19 @@
       return $http.delete('/logout');
     }
 
-    function addLoveIt(beerId){
-      return $http.post('/loveit/'+beerId);
+    function addLoveIt(beer){
+      return $http.post('/loveit', beer);
     }
 
-    function addHateIt(beerId){
-      return $http.post('/hateit/'+beerId);
+    function addHateIt(beer){
+      return $http.post('/hateit/', beer);
     }
 
-    return {register:register, login:login, logout:logout, addLoveIt:addLoveIt, addHateIt:addHateIt};
+    function index(user){
+      return $http.get('/dashboard', user);
+    }
+
+    return {register:register, login:login, logout:logout, addLoveIt:addLoveIt, addHateIt:addHateIt, index:index};
   }]);
 })();
 

@@ -30,9 +30,9 @@ module.exports = function(app, express){
   app.delete('/logout', users.logout);
   app.get('/search/:beer', beers.find);
   app.get('/beer/:beerId', beers.show);
-  app.get('/search/:brewery', beers.findBrew);
-  app.post('/loveit/:beerId', beers.loveIt);
-  app.post('/hateit/:beerId', beers.hateIt);
+  app.post('/loveit', beers.loveIt);
+  app.post('/hateit', beers.hateIt);
+  app.get('/dashboard', users.index);
 
 
   console.log('Express: Routes Loaded');

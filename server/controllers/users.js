@@ -35,3 +35,9 @@ exports.logout = function(req, res){
   });
 };
 
+exports.index = function(req, res){
+  User.findById(req.user._id, function(err, user){
+    res.send({user:user});
+  });
+};
+

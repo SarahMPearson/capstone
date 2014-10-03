@@ -2,7 +2,7 @@
 
 
 exports.index = function(req, res){
-  res.send({mean:['Ale', 'Porter', 'Stout', 'Wheat']});
+  res.send({beer:['Ale', 'Porter', 'Stout', 'Wheat', 'Hefe']});
 };
 
 

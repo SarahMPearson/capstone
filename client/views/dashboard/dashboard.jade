@@ -1,0 +1,16 @@
+.row
+  .col-cs-12
+    H1 Beers I Love!
+    ul(ng-repeat='love in user.loveIt')
+      .panel.panel-body.love: a(href='', ng-click='show(beer)')
+        img.beer(src='{{love.labels.icon}}')
+        &nbsp; {{love.name}} &nbsp; {{love.abv}}%
+
+
+.row
+  .col-xs-12
+    h1 Beers I Dislike
+    ul(ng-repeat='hate in user.hateIt')
+      .panel.panel-body.hate: a(href='', ng-click='show(beer)')
+        img.beer(src='{{hate.labels.icon}}')
+        &nbsp; {{hate.name}} &nbsp; {{hate.abv}}%

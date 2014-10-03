@@ -11,26 +11,20 @@
       return $http.get('/beer');
     }
 
-    function findBrew(brewery){
-      return $http.get('/search/' + brewery);
+    function showLove(beerId){
+      return $http.get('/dashboard');
     }
 
-    return {find:find, show:show, findBrew:findBrew};
+    return {find:find, show:show, showLove:showLove};
   }])
   .controller('BeerCtrl', ['$scope', 'BeerApi', 'User', function($scope, BeerApi, User){
     $scope.findBeer = function(){
       $scope.beers = [];
-      $scope.breweries = [];
       $scope.loveIt = [];
       $scope.hateIt = [];
 
       BeerApi.find($scope.beername).then(function(response){
         $scope.beers = response.data.data;
-      });
-    };
-    $scope.findBrew = function(){
-      BeerApi.findBrew($scope.breweryname).then(function(response){
-        $scope.breweries = response.data.data;
       });
     };
 
@@ -57,16 +51,17 @@
     }
 
   $scope.addLove = function(){
-    User.addLoveIt($scope.beer.id).then(function(response){
-      $scope.loveIt.push($scope.beer.id);
+    User.addLoveIt($scope.beer).then(function(response){
+      $scope.loveIt.push($scope.beer);
     });
   };
 
   $scope.addHate = function(){
-    User.addHateIt($scope.beer.id).then(function(response){
-      $scope.hateIt.push($scope.beer.id);
+    User.addHateIt($scope.beer).then(function(response){
+      $scope.hateIt.push($scope.beer);
     });
   };
+
 
   }]);
 })();

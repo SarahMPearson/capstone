@@ -14,6 +14,7 @@
         li: a(href='/#/register') Register
         li: a(href='/#/login') Login
       ul.nav.navbar-nav.navbar-right(ng-show='email')
+        li: a(href='/#/dashboard') Dashboard
         li: a(href='/#/search') Search
-        li: a(href='/#/logout') {{email}}
+        li: a#logout(href='/#/logout') {{email}}
 

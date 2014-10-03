@@ -1,14 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster); //beername font
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+
 h1#bName {
   text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 400%;
+  color: #C21919;
+  text-shadow: 1px 3px 3px rgba(0,0,0,.4);
+  margin: 0px;
+}
+
+h1#abv {
+  font-size: 500%;
+  margin-top: 75px;
+  margin-left: 20%;
+}
+
+h1#abvText{
+  font-size: 900%;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  margin-top: 20%;
+  margin-right: 20%;
 }
 
 h2#style {
   color: black;
+  text-align: center;
+}
+
+h2#glass {
+  color: rgba(0,0,0,0.1);
+  margin-top: 20%;
+  margin-left: 10%;
+  font-size: 300%;
+  position: absolute;
 }
 
 img#pint{
   max-width: 255px;
   max-height: 255px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 
@@ -19,9 +53,19 @@ h5#description {
 
 .panel-default.beer{
   height: 60px;
-  width: 200px;
+  width: 230px;
   padding: 2px;
-  display: inline-block;
+  display: inline-flex;
+  color: black;
+  text-overflow: clip;
+}
+a#list{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 100%;
+  color: black;
+  overflow: hidden;
+  text-overflow: clip;
+  font-size: 100%;
 }
 
 img.beer{
@@ -29,4 +73,36 @@ img.beer{
   display: inline-block;
   height: 50px;
   width: 50px;
+}
+
+button.btn.btn-default {
+  margin-top: 10px;
+}
+
+button.btn.btn-danger {
+  float: right;
+}
+button.btn.btn-success {
+  margin: 0px;
+}
+
+img#label {
+  margin: auto;
+  position: relative;
+  top: 0; left: 2opx; bottom: 0; right: 0;
+}
+
+
+.panel-body.love, .panel-body.hate {
+  height: 60px;
+  width: 230px;
+  padding: 2px;
+  display: inline-flex;
+  color: black;
+  text-overflow: clip;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
