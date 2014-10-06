@@ -28,7 +28,7 @@ User.findById = function(id, cb){
 
 User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
-    var oNew=new User(o);
+    var oNew = new User(o);
     if(user || o.password.length < 3){return cb();}
     oNew.password = bcrypt.hashSync(o.password, 10);
     User.collection.save(oNew, cb);

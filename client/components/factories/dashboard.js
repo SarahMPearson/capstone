@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('hoppyDays')
-  .factory('User', ['$http', function($http){
+  .factory('Dashboard', ['$http', function($http){
 
 
   }]);

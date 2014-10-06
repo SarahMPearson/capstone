@@ -4,6 +4,7 @@
   angular.module('hoppyDays')
   .factory('User', ['$http', function($http){
 
+
     function register(user){
       return $http.post('/register', user);
     }
@@ -28,7 +29,7 @@
       return $http.get('/dashboard', user);
     }
 
-    return {register:register, login:login, logout:logout, addLoveIt:addLoveIt, addHateIt:addHateIt, index:index};
+    return ({register:register, login:login, logout:logout, addLoveIt:addLoveIt, addHateIt:addHateIt, index:index});
   }]);
 })();
 
