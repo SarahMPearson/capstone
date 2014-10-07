@@ -63,6 +63,11 @@ h5#description {
   color: black;
   text-overflow: clip;
 }
+
+h6.styleAbv{
+  text-align: center;
+}
+
 a#list{
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 100%;
@@ -77,8 +82,8 @@ a#list{
 img.beer{
   border-radius: 360px;
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  max-height: 50px;
+  max-width: 50px;
 }
 
 img.love, img.hate{
@@ -98,23 +103,42 @@ button.btn.btn-danger {
 button.btn.btn-success {
   margin: 0px;
   position: relative;
-  top: 31px;
+  top: 27px;
 }
 
 img#label {
   margin: auto;
   position: relative;
   top: 0; left: 2px; bottom: 0; right: 0;
+  max-height: 250px;
+  max-width: 250px;
+}
+a.thumbnail {
+  display: inline-block;
+  margin: 10px;
+  box-shadow: 10px 10px 37px 2px rgba(0,0,0,0.75);
+}
+
+.thumbnail {
+  display: inline-block;
+  margin: 10px;
+  box-shadow: 10px 10px 37px 2px rgba(0,0,0,0.75);
+}
+
+img#test {
+  max-height: 200px;
+  max-width: 200px;
+  display: inline-block;
 }
 
 
-.panel-body.love, .panel-body.hate {
-  height: 170px;
-  width: 100px;
-  padding: 2px;
-  display: inline-flex;
-  color: black;
-}
+//.panel-body.love, .panel-body.hate {
+  //height: 170px;
+  //width: 100px;
+  //padding: 2px;
+  //display: inline-flex;
+  //color: black;
+//}
 
 .name {
   font-family: 'Open Sans Condensed', sans-serif;
@@ -131,11 +155,13 @@ a {
 }
 
 button#del {
-  float: right;
+  position: relative;
+  top: 2px;
+  left: 134px;
   margin-top: 5px;
-  margin-bottom: 1px;
-  padding: 5px;
+  margin-bottom: 3px;
 }
+
 
 a:hover {
   text-decoration: none;

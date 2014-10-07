@@ -22,6 +22,8 @@
       $scope.beers = [];
       $scope.loveIt = [];
       $scope.hateIt = [];
+      $scope.loveButton = 'Love It';
+      $scope.hateButton = 'Hate It';
 
       BeerApi.find($scope.beername).then(function(response){
         $scope.beers = response.data.data;
@@ -46,17 +48,21 @@
         case 'Tulip':
           return '/img/tulip-glass.jpg';
         case 'Goblet':
-          return '/img/goblet.jpt';
+          return '/img/goblet.jpg';
+        case 'Mug':
+          return '/img/mug.jpg';
       }
     }
 
   $scope.addLove = function(){
+    $scope.loveButton = 'Loved It';
     User.addLoveIt($scope.beer).then(function(response){
       $scope.loveIt.push($scope.beer);
     });
   };
 
   $scope.addHate = function(){
+    $scope.hateButton = 'Hated It';
     User.addHateIt($scope.beer).then(function(response){
       $scope.hateIt.push($scope.beer);
     });

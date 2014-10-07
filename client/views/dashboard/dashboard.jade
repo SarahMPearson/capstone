@@ -6,7 +6,7 @@
         .panel.body(ng-show='beer.name')
           .row
             .col-xs-4
-              img#label(src='{{beer.labels.medium}}' || '/img/logo.jpg')
+              img#label(ng-src='{{beer.labels.medium || "/img/logo.jpg"}}')
             .col-xs-4
               h1#abvText(ng-show='beer.abv') ABV
               h1#abv(ng-show='beer.abv') {{beer.abv}}%
@@ -22,7 +22,7 @@
             .col-xs-12
               h2#style(ng-show='beer.style.name') Style: {{beer.style.name}}
 
-.row
+//.row
   .col-cs-12.dashboard
     h1#beerD  Beers I Love!
     ul(ng-repeat='love in user.loveIt')
@@ -33,10 +33,26 @@
 
 
 .row
+  .col-xs-12
+    h1#beerD Beers I love!
+    a.thumbnail(href='', ng-repeat='love in user.loveIt')
+      img#test(ng-src='{{love.labels.large || "/img/logo.jpg"}}', alt='beer')
+      .name{{love.name}}
+      button.btn.btn-default#del(ng-click='delBeer(love.id)') Delete
+
+.row
+  .col-xs-12
+    h1#beerD Beers I Dislike
+    a.thumbnail(href='', ng-repeat='hate in user.hateIt')
+      img#test(ng-src='{{hate.labels.large || "/img/logo.jpg"}}', alt='beer')
+      .name{{hate.name}}
+      button.btn.btn-default#del(ng-click='delBeer(hate.id)') Delete
+
+//.row
   .col-xs-12.dashboard
     h1#beerD Beers I Dislike
     ul(ng-repeat='hate in user.hateIt')
       .panel.panel-body.hate: a(href='', ng-click='show(beer)')
         img.hate(src='{{hate.labels.icon}}')
         .name&nbsp; {{hate.name}}
-        button#del(ng-click='delBeer(hate.id)') x
+        button.btn.btn-warning#del(ng-click='delBeer(hate.id)') Delete
