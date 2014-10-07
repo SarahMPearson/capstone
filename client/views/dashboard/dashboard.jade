@@ -29,6 +29,7 @@
       .panel.panel-body.love: a(href='', ng-click='show(beer)')
         img.love(src='{{love.labels.icon}}')
         .name&nbsp; {{love.name}}
+        button.btn.btn-warning#del(ng-click='delBeer(love.id)') Delete
 
 
 .row
@@ -38,4 +39,4 @@
       .panel.panel-body.hate: a(href='', ng-click='show(beer)')
         img.hate(src='{{hate.labels.icon}}')
         .name&nbsp; {{hate.name}}
-        button#del(ng-click='remove()') x
+        button#del(ng-click='delBeer(hate.id)') x

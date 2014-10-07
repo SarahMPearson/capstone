@@ -3,6 +3,7 @@
 var request = require('request'),
     apiKey  = '92230036d307c565c294e1e32ce932f7',
     Beer    = require('../models/beer'),
+    //Mongo   = require('mongodb'),
     User    = require('../models/user');
 
 
@@ -15,7 +16,6 @@ exports.find = function(req, res){
 
 exports.show = function(req, res){
   Beer.findById(req.body.beer.id, function(err, beer){
-    console.log('Controller Beer', beer);
     res.send({beer:beer});
   });
 };
@@ -36,14 +36,10 @@ exports.hateIt = function(req, res){
   });
 };
 
-
 exports.delBeer = function(req, res){
-  User.delBeer(req.params.id, function(){
-    res.send();
+  User.findById(req.user._id, function(err, user){
+    user.delLoveBeer(req.params.beerId, function(){
+      res.send({user:user});
+    });
   });
 };
-//exports.delBeer = function(req, res){
-  //User.collection.remove({beerId:req.params.beerId}, true, function(err, result){
-    //res.send({result:result});
- // });
-//};

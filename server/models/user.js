@@ -60,7 +60,17 @@ User.prototype.addHateIt = function(beer, cb){
   });
 };
 
+User.prototype.delLoveBeer = function(beerId, cb){
+  this.loveIt = _.filter(this.loveIt, function(beer){
+    return beer.id !== beerId;
+  });
 
+  this.hateIt = _.filter(this.hateIt, function(beer){
+    return beer.id !== beerId;
+  });
+
+  User.collection.save(this, cb);
+};
 
 module.exports = User;
 

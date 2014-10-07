@@ -5,7 +5,6 @@
   .controller('RegisterCtrl', ['$scope', '$location', 'User', 'Home', function($scope, $location, User, Home){
     $scope.user = {};
 
-    debugger;
 
     function success(response){
       toastr.success('User successfully registered.');

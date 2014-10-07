@@ -2,14 +2,16 @@
   'use strict';
 
   angular.module('hoppyDays')
-  .controller('DashCtrl', ['$scope', 'User', function($scope, User){
+  .controller('DashCtrl', ['$scope', 'User', 'Dashboard','$window', function($scope, User, Dashboard, $window){
 
     User.index(User).then(function(response){
       $scope.user = response.data.user;
     });
 
-    $scope.remove = function(beerId){
-      $scope.user.loveIt.splice(beerId, 1);
+    $scope.delBeer = function(beerId){
+      Dashboard.delBeer(beerId).then(function(response){
+        $window.location.reload();
+      });
     };
 
     $scope.show = function(beer){

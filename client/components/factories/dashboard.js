@@ -8,7 +8,11 @@
       return $http.get('/dashboard');
     }
 
-    return {show:show};
+    function delBeer(beerId){
+      return $http.delete('/dashboard/' + beerId);
+    }
+
+    return ({show:show, delBeer:delBeer});
 
   }]);
 })();
