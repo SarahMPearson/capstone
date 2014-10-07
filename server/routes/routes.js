@@ -33,6 +33,7 @@ module.exports = function(app, express){
   app.post('/loveit', beers.loveIt);
   app.post('/hateit', beers.hateIt);
   app.get('/dashboard', users.index);
+  app.get('/dashboard/:beerId', beers.show);
 
 
   console.log('Express: Routes Loaded');

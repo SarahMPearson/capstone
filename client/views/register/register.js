@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('hoppyDays')
-  .controller('RegisterCtrl', ['$scope', '$location', 'Userx', 'Home', function($scope, $location, Userx, Home){
+  .controller('RegisterCtrl', ['$scope', '$location', 'User', 'Home', function($scope, $location, User, Home){
     $scope.user = {};
 
     debugger;
@@ -18,8 +18,7 @@
     }
 
     $scope.register = function(){
-      debugger;
-      Userx.register($scope.user).then(success, failure);
+      User.register($scope.user).then(success, failure);
     };
   }]);
 })();

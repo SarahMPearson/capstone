@@ -37,7 +37,12 @@ exports.hateIt = function(req, res){
 };
 
 
-//exports.deleteBeer = function(req, res){
+exports.delBeer = function(req, res){
+  User.delBeer(req.params.id, function(){
+    res.send();
+  });
+};
+//exports.delBeer = function(req, res){
   //User.collection.remove({beerId:req.params.beerId}, true, function(err, result){
     //res.send({result:result});
  // });

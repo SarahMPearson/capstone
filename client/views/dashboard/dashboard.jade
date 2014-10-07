@@ -1,16 +1,41 @@
 .row
-  .col-cs-12
-    H1 Beers I Love!
+  .col-xs-12
+    .panel(ng-show='beer.name')
+      .panel-heading.panel-warning
+        h1#bName {{beer.name}}
+        .panel.body(ng-show='beer.name')
+          .row
+            .col-xs-4
+              img#label(src='{{beer.labels.medium}}' || '/img/logo.jpg')
+            .col-xs-4
+              h1#abvText(ng-show='beer.abv') ABV
+              h1#abv(ng-show='beer.abv') {{beer.abv}}%
+            .col-xs-4
+              h2#glass {{beer.glass.name}}
+              img#pint(src='{{beer.glass.img}}')
+          .row
+            .col-xs-12
+              h4(ng-show='beer.description') Description:
+              h5#description {{beer.description}}
+        .panel-footer
+          .row
+            .col-xs-12
+              h2#style(ng-show='beer.style.name') Style: {{beer.style.name}}
+
+.row
+  .col-cs-12.dashboard
+    h1#beerD  Beers I Love!
     ul(ng-repeat='love in user.loveIt')
       .panel.panel-body.love: a(href='', ng-click='show(beer)')
-        img.beer(src='{{love.labels.icon}}')
-        &nbsp; {{love.name}} &nbsp; {{love.abv}}%
+        img.love(src='{{love.labels.icon}}')
+        .name&nbsp; {{love.name}}
 
 
 .row
-  .col-xs-12
-    h1 Beers I Dislike
+  .col-xs-12.dashboard
+    h1#beerD Beers I Dislike
     ul(ng-repeat='hate in user.hateIt')
       .panel.panel-body.hate: a(href='', ng-click='show(beer)')
-        img.beer(src='{{hate.labels.icon}}')
-        &nbsp; {{hate.name}} &nbsp; {{hate.abv}}%
+        img.hate(src='{{hate.labels.icon}}')
+        .name&nbsp; {{hate.name}}
+        button#del(ng-click='remove()') x
