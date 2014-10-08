@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster); //beername font
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-
+/******* Show *********/
 h1#bName {
   text-align: center;
   font-family: 'Lobster', cursive;
@@ -64,6 +64,15 @@ h5#description {
   text-overflow: clip;
 }
 
+button.btn.btn-danger {
+  float: right;
+}
+button.btn.btn-success {
+  margin: 0px;
+  position: relative;
+  top: 27px;
+}
+
 h6.styleAbv{
   text-align: center;
 }
@@ -76,14 +85,19 @@ a#list{
   text-overflow: clip;
   font-size: 130%;
   overflow: hidden;
-  line-height: 1;
 }
-
+/// ********* DASHBOARD *******///
 img.beer{
   border-radius: 360px;
   display: inline-block;
   max-height: 50px;
   max-width: 50px;
+}
+
+a.thumbnail {
+  display: inline-block;
+  margin: 10px;
+  box-shadow: 10px 10px 37px 2px rgba(0,0,0,0.75);
 }
 
 img.love, img.hate{
@@ -97,27 +111,14 @@ button.btn.btn-default {
   margin-top: 10px;
 }
 
-button.btn.btn-danger {
-  float: right;
-}
-button.btn.btn-success {
-  margin: 0px;
-  position: relative;
-  top: 27px;
-}
 
-img#label {
-  margin: auto;
-  position: relative;
-  top: 0; left: 2px; bottom: 0; right: 0;
-  max-height: 250px;
-  max-width: 250px;
-}
-a.thumbnail {
-  display: inline-block;
-  margin: 10px;
-  box-shadow: 10px 10px 37px 2px rgba(0,0,0,0.75);
-}
+//img#label {
+  //margin: auto;
+  //position: relative;
+  //top: 0; left: 2px; bottom: 0; right: 0;
+  //max-height: 250px;
+  //max-width: 250px;
+//}
 
 .thumbnail {
   display: inline-block;
@@ -131,29 +132,6 @@ img#test {
   display: inline-block;
 }
 
-
-//.panel-body.love, .panel-body.hate {
-  //height: 170px;
-  //width: 100px;
-  //padding: 2px;
-  //display: inline-flex;
-  //color: black;
-//}
-
-.name {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 130%;
-  overflow: hidden;
-  line-height: 1;
-  text-align: center;
-  margin-top: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
 button#del {
   position: relative;
   top: 2px;
@@ -162,10 +140,13 @@ button#del {
   margin-bottom: 3px;
 }
 
-
-a:hover {
-  text-decoration: none;
-  color: black;
+.name {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 130%;
+  overflow: visible;
+  line-height: 1;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #beerD {
@@ -177,3 +158,14 @@ a:hover {
 .dashboard {
   padding: 0px;
 }
+//*******  A's *******//
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+

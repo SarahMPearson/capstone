@@ -22,20 +22,10 @@
             .col-xs-12
               h2#style(ng-show='beer.style.name') Style: {{beer.style.name}}
 
-//.row
-  .col-cs-12.dashboard
-    h1#beerD  Beers I Love!
-    ul(ng-repeat='love in user.loveIt')
-      .panel.panel-body.love: a(href='', ng-click='show(beer)')
-        img.love(src='{{love.labels.icon}}')
-        .name&nbsp; {{love.name}}
-        button.btn.btn-warning#del(ng-click='delBeer(love.id)') Delete
-
-
 .row
   .col-xs-12
-    h1#beerD Beers I love!
-    a.thumbnail(href='', ng-repeat='love in user.loveIt')
+    h1#beerD Beers I Love!
+    a.thumbnail(href='', ng-repeat='love in user.loveIt', ng-click='showDash(beer)')
       img#test(ng-src='{{love.labels.large || "/img/logo.jpg"}}', alt='beer')
       .name{{love.name}}
       button.btn.btn-default#del(ng-click='delBeer(love.id)') Delete
@@ -43,16 +33,8 @@
 .row
   .col-xs-12
     h1#beerD Beers I Dislike
-    a.thumbnail(href='', ng-repeat='hate in user.hateIt')
+    a.thumbnail(href='', ng-repeat='hate in user.hateIt', ng-click='showDash(beer)')
       img#test(ng-src='{{hate.labels.large || "/img/logo.jpg"}}', alt='beer')
       .name{{hate.name}}
       button.btn.btn-default#del(ng-click='delBeer(hate.id)') Delete
 
-//.row
-  .col-xs-12.dashboard
-    h1#beerD Beers I Dislike
-    ul(ng-repeat='hate in user.hateIt')
-      .panel.panel-body.hate: a(href='', ng-click='show(beer)')
-        img.hate(src='{{hate.labels.icon}}')
-        .name&nbsp; {{hate.name}}
-        button.btn.btn-warning#del(ng-click='delBeer(hate.id)') Delete

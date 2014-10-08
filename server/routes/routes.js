@@ -33,7 +33,7 @@ module.exports = function(app, express){
   app.post('/loveit', beers.loveIt);
   app.post('/hateit', beers.hateIt);
   app.get('/dashboard', users.index);
-  app.get('/dashboard', beers.show);
+  app.get('/dashboard', beers.showDash);
   app.delete('/dashboard/:beerId', beers.delBeer);
 
 

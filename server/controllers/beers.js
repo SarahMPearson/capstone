@@ -19,6 +19,12 @@ exports.show = function(req, res){
     res.send({beer:beer});
   });
 };
+exports.showDash = function(req, res){
+  console.log('Controller req.params id', req.user.beer._id);
+  Beer.findById(req.user.beer._id, function(err, beer){
+    res.send({beer:beer});
+  });
+};
 
 exports.loveIt = function(req, res){
   User.findById(req.user._id, function(err, user){

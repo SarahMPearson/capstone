@@ -31,6 +31,8 @@
     };
 
     $scope.show = function(beer){
+      $scope.loveButton = 'Love It';
+      $scope.hateButton = 'Hate It';
       beer.glass.img = findGlassImg(beer.glass.name);
       $scope.beer = beer;
     };

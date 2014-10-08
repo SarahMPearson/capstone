@@ -14,7 +14,8 @@
       });
     };
 
-    $scope.show = function(beer){
+    $scope.showDash = function(beer){
+      debugger;
       beer.glass.img = findGlassImg(beer.glass.name);
       $scope.beer = beer;
     };

@@ -4,7 +4,7 @@
   angular.module('hoppyDays')
   .factory('Dashboard', ['$http', function($http){
 
-    function show(){
+    function showDash(){
       return $http.get('/dashboard');
     }
 
@@ -12,7 +12,7 @@
       return $http.delete('/dashboard/' + beerId);
     }
 
-    return ({show:show, delBeer:delBeer});
+    return ({showDash:showDash, delBeer:delBeer});
 
   }]);
 })();
